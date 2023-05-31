@@ -28,16 +28,15 @@ const PizzaBlock = ({
             <li
               onClick={() => setPizzaType(index)}
               key={type}
-              className={index == pizzaType ? "active" : ""}
+              className={index === pizzaType ? "active" : ""}
             >
-              {type}
+              {typesNames[type]}
             </li>
           ))}
         </ul>
         <ul>
           {sizes.map((size, index) => (
-            <li onClick={() => setPizzaSize(index)} key={size} className={index == pizzaSize ? "active" : ""}>
-
+            <li onClick={() => setPizzaSize(index)} key={size} className={index === pizzaSize ? "active" : ""}>
             {size} см.</li>
           ))}
         </ul>
