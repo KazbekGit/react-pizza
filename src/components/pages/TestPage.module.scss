@@ -1,0 +1,30 @@
+.fruitWrapper {
+    width: 800px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    padding: 40px;
+    margin: 100px auto;
+    
+    border-radius: 4px;
+    background-color: tomato;
+}
+
+.fruitItem {
+    background-color: #fff;
+
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 4px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.active {
+    background-color: #4f7426;
+}

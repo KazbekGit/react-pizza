@@ -1,0 +1,9 @@
+.link {
+    padding: 10px;
+    &:hover {
+        padding: 10px;
+        border-radius: 4px;
+        background-color: tomato;
+        color: azure;
+    }
+}

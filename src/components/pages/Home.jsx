@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Categories from "../Categories";
 import Sort from "../Sort";
 import PizzaBlock from "../PizzaBlock";
 import Skeleton from "../pizzaBlock/Skeleton";
+import styles from './Home.module.scss'
 
 const Home = () => {
   const [pizzas, setPizzas] = useState([]);
@@ -52,6 +54,7 @@ const Home = () => {
             ))
           : pizzas.map((pizza) => <PizzaBlock {...pizza} key={pizza.id} />)}
       </div>
+      <Link to="/test" className={styles.link}>Let's test</Link>
     </>
   );
 };
