@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 
-const Sort = () => {
+const Sort = ({ sortType, setSortType }) => {
   const [sortTypesVisible, setSortTypesVisible] = useState(false);
-  const [currentSortType, setCurrentSortType] = useState(0);
-  const sortTypes = ["популярности", "цене", "алфавиту"];
+  const sortTypes = [
+    { name: "популярности (DESC)", sortProperty: "-rating" },
+    { name: "популярности (ASC)", sortProperty: "rating" },
+    { name: "цене (DESC)", sortProperty: "-price" },
+    { name: "цене (ASC)", sortProperty: "price" },
+    { name: "алфавиту (DESC)", sortProperty: "-title" },
+    { name: "алфавиту (ASC)", sortProperty: "title" },
+  ];
 
-  const onTypeClick = (index) => {
-    setCurrentSortType(index);
+  const onTypeClick = (sortType) => {
+    setSortType(sortType);
     setSortTypesVisible(!sortTypesVisible);
-  }
+  };
 
   return (
     <div className="sort">
@@ -27,14 +33,16 @@ const Sort = () => {
         </svg>
         <b>Сортировка по:</b>
         <span onClick={() => setSortTypesVisible(!sortTypesVisible)}>
-          {sortTypes[currentSortType]}
+          {sortType.name}
         </span>
       </div>
       {sortTypesVisible && (
         <div className="sort__popup">
           <ul>
             {sortTypes.map((sortType, index) => (
-              <li onClick={() => onTypeClick(index)}>{sortType}</li>
+              <li onClick={() => onTypeClick(sortType)} key={index}>
+                {sortType.name}
+              </li>
             ))}
           </ul>
         </div>
