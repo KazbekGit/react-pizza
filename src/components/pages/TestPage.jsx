@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./TestPage.module.scss";
 
 const TestPage = () => {
-  const fruits = ["apple", "kiwi", "orange", "banana", "strowberry"];
+  const fruits = ["apple", "kiwi", "orange", "banana", "strawberry"];
   const [fruitIndex, setFruitIndex] = useState(0)
 
   const onFruitItemClick = (index) => {

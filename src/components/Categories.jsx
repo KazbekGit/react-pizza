@@ -14,7 +14,6 @@ const Categories = ({categoryIndex, setCategoryIndex, setCategoryValue}) => {
   const onCategoryClick = (index) => {
     setCategoryIndex(index)
     setCategoryValue(categories[index])
-    console.log(categories[index])
   }
 
   return (
