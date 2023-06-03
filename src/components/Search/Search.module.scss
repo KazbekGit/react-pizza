@@ -1,0 +1,28 @@
+.searchWrapper {
+    position: relative;
+    margin-left: -200px;
+    svg {
+        position: absolute;
+
+        width: 30px;
+        height: 30px;
+        top: 8px;
+        right: 10px;
+
+        fill: #b6b4b4;
+        cursor: pointer;
+        &:hover {
+            fill: #868686;
+        }
+    }
+}
+.search {
+    min-width: 250px;
+    padding: 10px 15px;
+    padding-right: 50px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
