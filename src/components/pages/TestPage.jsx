@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./TestPage.module.scss";
-import PizzaBlock from "../PizzaBlock";
 
 const TestPage = () => {
-  const [items, setItems] = useState([]);
 
   const fruits = ["apple", "kiwi", "orange", "banana", "strawberry"];
   const [fruitIndex, setFruitIndex] = useState(0);

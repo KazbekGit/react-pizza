@@ -6,18 +6,28 @@ import PizzaBlock from '../PizzaBlock'
 import Skeleton from '../pizzaBlock/Skeleton'
 import styles from './Home.module.scss'
 import { SearchContext } from '../../App'
+import { setCategoryID } from '../redux/filterSlice'
+
+import { useDispatch, useSelector } from 'react-redux'
+
 
 const Home = () => {
+
+  const categoryID = useSelector((state) => state.filter.categoryID)
+  const dispatch = useDispatch();
+  
+  const sortType = useSelector((state) => state.filter.sortType)
+
+  const setCategoryIndex = (id) => {
+    dispatch(setCategoryID(id))
+  }
+
   const { searchValue } = useContext(SearchContext)
   const [pizzas, setPizzas] = useState([])
   const [isLoaded, setIsLoaded] = useState(true)
 
-  const [categoryIndex, setCategoryIndex] = useState(0)
   const [categoryValue, setCategoryValue] = useState('Все')
-  const [sortType, setSortType] = useState({
-    name: 'популярности',
-    sortProperty: 'rating'
-  })
+
 
   const numOfSkeletonItems = 10
 
@@ -25,7 +35,7 @@ const Home = () => {
     setIsLoaded(true)
 
     const sortBy = sortType.sortProperty.replace('-', '')
-    const category = categoryIndex > 0 ? categoryIndex : ''
+    const category = categoryID > 0 ? categoryID : ''
     const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc'
 
     fetch(
@@ -37,16 +47,14 @@ const Home = () => {
         setIsLoaded(false)
       })
       .catch(err => console.log(err))
-  }, [categoryIndex, sortType])
+  }, [categoryID, sortType])
   return (
     <>
       <div className='content__top'>
         <Categories
-          categoryIndex={categoryIndex}
-          setCategoryIndex={index => setCategoryIndex(index)}
           setCategoryValue={category => setCategoryValue(category)}
         />
-        <Sort sortType={sortType} setSortType={index => setSortType(index)} />
+        <Sort />
       </div>
       <h2 className='content__title'>{categoryValue}</h2>
       <div className='content__items'>
