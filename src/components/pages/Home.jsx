@@ -8,19 +8,14 @@ import styles from './Home.module.scss'
 import { SearchContext } from '../../App'
 import { setCategoryID } from '../redux/filterSlice'
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 const Home = () => {
 
   const categoryID = useSelector((state) => state.filter.categoryID)
-  const dispatch = useDispatch();
   
   const sortType = useSelector((state) => state.filter.sortType)
-
-  const setCategoryIndex = (id) => {
-    dispatch(setCategoryID(id))
-  }
 
   const { searchValue } = useContext(SearchContext)
   const [pizzas, setPizzas] = useState([])
